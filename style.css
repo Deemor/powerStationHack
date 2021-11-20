@@ -1,0 +1,56 @@
+#mainSpot
+{
+    display:none;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:50px;
+    width:1150px;
+    height:650px;
+    background-color: #1b1b1b;
+}
+#maze
+{
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
+    width:930px;
+    height:468px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.row
+{
+    margin-left:auto;
+    margin-right:auto;
+    border-bottom: 1px solid white;
+    width:929px;
+    height:117px;
+}
+#maze .row:last-child
+{
+    border-bottom: none;
+}
+.column
+{
+    background-color: white;
+    width:1px;
+    height:116px;
+}
+.square
+{
+    border-right: 1px solid white;
+    /* background-color: black; */
+    width:116px;
+    height:116px;
+    padding:0px;
+}
+.row .square:last-child
+{
+    border-right: none;
+}
+.shadow {
+    -webkit-filter: drop-shadow( 0px 0px 15px #ba89f1);
+    filter: drop-shadow( 0px 0px 15px #ba89f1);
+    /* Similar syntax to box-shadow */
+}

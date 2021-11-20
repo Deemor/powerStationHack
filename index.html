@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+	  	<meta charset="utf-8" />
+	  	<title>powerStationHack</title>
+	  	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet"> 
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+		<link href="style.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="src/powerStationHack.js" defer></script>
+	</head>
+
+	<body style="background-color: black; ">
+		<div id="buttonDiv">
+			<button type="button" class="btn btn-primary btn-lg mx-auto d-flex" id="buttonStart" style="margin-top:300px;">Start hack</button>
+			<nav class="navbar fixed-bottom navbar-dark bg-dark">
+				<a class="navbar-brand p-3" href="#">PowerStationHack - Odwzorowanie hacka z serwera 5City GTA V RolePlay</a>
+			  </nav>
+		</div>
+		<div id="mainSpot">
+			<div class="container">
+				<div class="row align-content-center">
+					<div class="col-6">
+						<p class="h3 text-white" id="navText">PRZYGOTUJ SIĘ</p>
+					</div>
+					<div class="col-6 my-auto align-content-center">
+						<div class="progress  m-1 mt-4 mb-3" style="height: 6px; background-color: #1b1b1b;">
+							<div class="" role="progressbar" id="progress-bar" style=" background-color: white;"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="maze">
+				
+				<div class="row">
+					<span class="square" id="00"></span> 
+					<span class="square" id="01" onclick="squareClick(0,1)"></span> 
+					<span class="square" id="02" onclick="squareClick(0,2)"></span> 
+					<span class="square" id="03" onclick="squareClick(0,3)"></span> 
+					<span class="square" id="04" onclick="squareClick(0,4)"></span> 
+					<span class="square" id="05" onclick="squareClick(0,5)"></span> 
+					<span class="square" id="06" onclick="squareClick(0,6)"></span> 
+					<span class="square" id="07" onclick="squareClick(0,7)"></span>
+				</div>
+				<div class="row">
+					<span class="square" id="10" onclick="squareClick(1,0)"></span> 
+					<span class="square" id="11" onclick="squareClick(1,1)"></span> 
+					<span class="square" id="12" onclick="squareClick(1,2)"></span> 
+					<span class="square" id="13" onclick="squareClick(1,3)"></span> 
+					<span class="square" id="14" onclick="squareClick(1,4)"></span> 
+					<span class="square" id="15" onclick="squareClick(1,5)"></span> 
+					<span class="square" id="16" onclick="squareClick(1,6)"></span> 
+					<span class="square" id="17" onclick="squareClick(1,7)"></span>
+				</div>
+				<div class="row">
+					<span class="square" id="20" onclick="squareClick(2,0)"></span> 
+					<span class="square" id="21" onclick="squareClick(2,1)"></span> 
+					<span class="square" id="22" onclick="squareClick(2,2)"></span> 
+					<span class="square" id="23" onclick="squareClick(2,3)"></span> 
+					<span class="square" id="24" onclick="squareClick(2,4)"></span> 
+					<span class="square" id="25" onclick="squareClick(2,5)"></span> 
+					<span class="square" id="26" onclick="squareClick(2,6)"></span> 
+					<span class="square" id="27" onclick="squareClick(2,7)"></span>
+				</div>
+				<div class="row">
+					<span class="square" id="30" onclick="squareClick(3,0)"></span> 
+					<span class="square" id="31" onclick="squareClick(3,1)"></span> 
+					<span class="square" id="32" onclick="squareClick(3,2)"></span> 
+					<span class="square" id="33" onclick="squareClick(3,3)"></span> 
+					<span class="square" id="34" onclick="squareClick(3,4)"></span> 
+					<span class="square" id="35" onclick="squareClick(3,5)"></span> 
+					<span class="square" id="36" onclick="squareClick(3,6)"></span> 
+					<span class="square" id="37"></span>
+				</div>
+			</div>
+		</div>
+
+
+
+
+		
+		
+		<script>
+			
+		</script>
+	</body>
+</html>
+
