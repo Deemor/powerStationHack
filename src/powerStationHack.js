@@ -515,7 +515,6 @@ async function startHack(){
       if (isEndActive()==1) {
         $("#progress-bar").stop(true,true);
         setEndActive(0);
-        $('body').unbind('DOMSubtreeModified');
         output(1);
       }
     });
@@ -527,6 +526,7 @@ async function startHack(){
 async function start()
 {
   var result = await startHack();
+  $('body').unbind('DOMSubtreeModified');
   if(result == 1)
   {
     $("#progress-bar").stop(true,true);
