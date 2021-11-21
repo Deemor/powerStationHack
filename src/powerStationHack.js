@@ -485,7 +485,7 @@ async function createMaze()
 {
   var ran = randomInt(MAZE_N.length);
   console.log(ran);
-  alert(ran);
+  //alert(ran);
   var mazeNumbers = MAZE_N[ran];
   maze = new Array(rows);
   for(var i = 0; i < rows; i++)
