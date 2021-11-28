@@ -292,36 +292,7 @@ class Exit extends Square
 }
 async function createMaze()
 {
-  var mazeNumbers = await ExploGridToMyGrid();
-  maze = new Array(rows);
-  for(var i = 0; i < rows; i++)
-  {
-    maze[i] = new Array(columns);
-    for(var j = 0; j < columns; j++)
-    {
-      switch(mazeNumbers[i][j])
-      {
-        case 1:
-          maze[i][j] = new Angle(i,j,1);
-        break;
-        case 2:
-          maze[i][j] = new Angle(i,j,2);
-        break;
-        case 3:
-          maze[i][j] = new Angle(i,j,0);
-        break;
-        case 4:
-          maze[i][j] = new Angle(i,j,3);
-        break;
-        case 5:
-          maze[i][j] = new Straight(i,j,1);
-        break;
-        case 6:
-          maze[i][j] = new Straight(i,j,0);
-        break;
-      }
-    }
-  }
+  maze = GenerateGrid();
   
   maze[rows-1][columns-1] = new Exit(rows-1,columns-1);
   maze[0][0].setActive();
@@ -512,12 +483,17 @@ function GenerateGrid() {
         const row = [];
         for(let j = 0; j < 8; j++) {
             let type = Math.random() > 0.5 ? "corner" : "flat";
-            let rotation = Math.floor(Math.random() * 4)
+            let rotation = Math.floor(Math.random() * (type === "corner" ? 4 : 2))
             if(i === 3 && j === 7) {
                 type = "corner";
                 rotation = 0;
             }
-            row.push({type, rotation, row: i, cell: j});
+
+            if(type === "corner") {
+                row.push(new Angle(i,j,rotation));
+            } else {
+                row.push(new Straight(i,j,rotation));
+            }
         }
 
         grid.push(row);
@@ -530,19 +506,9 @@ function GenerateGrid() {
 
         if(row === 0 && cell === 0) {
             if(step === CONNECTION_DOWN) {
-                grid[row][cell] = {
-                    type: "flat",
-                    rotation: 0,
-                    row,
-                    cell
-                }
+                grid[row][cell] = new Straight(row,cell,0);
             } else {
-                grid[row][cell] = {
-                    type: "corner",
-                    rotation: 1,
-                    row,
-                    cell
-                }
+                grid[row][cell] = new Angle(row,cell,3);
             }
 
         }
@@ -558,56 +524,11 @@ function GenerateGrid() {
         }
 
         if(step === nextStep) {
-            grid[row][cell] = {
-                type: "flat",
-                rotation: Math.floor(Math.random() * 4),
-                row,
-                cell
-            }
+            grid[row][cell] = new Straight(row,cell,Math.floor(Math.random() * 2));
         } else {
-            grid[row][cell] = {
-                type: "corner",
-                rotation: Math.floor(Math.random() * 4),
-                row,
-                cell
-            }
+            grid[row][cell] = new Angle(row,cell,Math.floor(Math.random() * 4));
         }
     }
 
     return grid;
-}
-// "wybitny" konwerter siatki od explo na moja siatke.
-// przepraszam za to ponizej
-async function ExploGridToMyGrid()
-{
-  var newgrid = new Array(rows);
-  for(var i = 0; i < rows; i++)
-  {
-    newgrid[i] = new Array(columns);
-  }
-  var grid = GenerateGrid();
-  for(var i = 0;i<grid.length; i++)
-  {
-    for(var j = 0;j<grid[i].length; j++)
-    {
-      if(grid[i][j].type == "flat")
-      {
-        if(grid[i][j].rotation == 0 || grid[i][j].rotation == 2)
-        newgrid[i][j] = 6;
-        else if(grid[i][j].rotation == 1 || grid[i][j].rotation == 3)
-        newgrid[i][j] = 5;
-      }else
-      {
-        if(grid[i][j].rotation == 0)
-          newgrid[i][j] = 3;
-        else if(grid[i][j].rotation == 1)
-          newgrid[i][j] = 4;
-        else if(grid[i][j].rotation == 2)
-          newgrid[i][j] = 1;
-        else if(grid[i][j].rotation == 3)
-          newgrid[i][j] = 2;
-      }
-    }
-  }
-  return newgrid;
 }
