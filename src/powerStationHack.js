@@ -64,198 +64,7 @@ const EXIT_CONNECTIONS = [
 //   [0,1,0,1,0,1,0,1],
 //   [1,0,1,1,0,0,0,0]
 // ]
-const MAZE_N = [
-  [
-    [4,1,0,0,1,1,0,1],//0 
-    [0,0,1,1,0,1,0,0],
-    [1,1,0,0,1,0,1,0],
-    [1,0,0,1,0,0,1,0]
-],
-    // [1,1,x,x,x,1,0,1],
-    // [x,0,x,1,0,1,x,0],
-    // [1,1,x,0,x,x,x,0],
-    // [1,0,0,1,x,x,x,0]
-[
-    [1,1,1,0,1,0,0,1],//1 OK
-    [0,0,0,1,0,1,0,1],
-    [1,0,1,0,0,1,1,0],
-    [0,1,1,0,1,0,0,0]
-],
-    // [1,x,1,0,1,x,x,x],
-    // [0,x,0,x,0,x,x,x],
-    // [1,0,1,x,0,x,x,x],
-    // [x,x,x,x,1,0,0,0]
-[
-    [4,0,0,0,0,1,1,0],//2 OK
-    [1,1,0,0,0,1,0,1],
-    [1,0,0,1,1,0,1,1],
-    [0,1,0,0,0,0,0,0]
-],
-    // [4,0,0,0,0,1,x,x],
-    // [x,1,0,0,0,1,x,x],
-    // [x,0,x,x,x,x,x,x],
-    // [x,1,0,0,0,0,0,0]
-[
-    [4,0,0,0,1,0,0,1],//3  OK
-    [0,1,0,1,0,0,0,1],
-    [0,1,0,0,1,1,1,0],
-    [0,1,0,0,0,0,0,0]
-],
-    // [4,0,0,0,1,x,x,x],
-    // [x,x,x,x,0,x,x,x],
-    // [x,1,0,0,1,x,x,x],
-    // [x,1,0,0,0,0,0,x]
-[
-  [1,1,0,0,0,1,0,1],//4 OK
-  [0,0,1,1,0,0,1,0],
-  [1,1,0,0,1,1,0,0],
-  [0,0,1,0,1,0,0,0]
-],
-// [1,1,0,0,0,1,x,x],
-// [0,0,x,x,x,0,x,x],
-// [1,1,x,x,1,1,x,x],
-// [x,x,x,x,1,0,0,0]
-[
-  [4,0,1,1,1,0,0,1],//5 OK
-  [1,1,0,1,0,1,1,0],
-  [0,0,0,0,0,0,0,0],
-  [0,1,1,0,1,0,0,0]
-],
-// [4,0,1,x,1,0,0,1],
-// [x,x,0,x,0,x,x,0],
-// [x,x,0,x,0,x,x,0],
-// [x,x,1,0,1,x,x,0]
-[
-  [4,0,0,0,1,1,0,0],//6 OK
-  [1,1,0,0,0,0,1,0],
-  [0,0,1,0,1,0,0,1],
-  [0,1,0,1,0,1,1,0]
-],
-  // [4,0,0,0,1,x,x,x],
-  // [x,x,x,x,0,x,x,x],
-  // [x,x,x,x,1,0,0,1],
-  // [x,x,x,x,x,x,x,0]
-  [
-    [1,1,0,0,0,0,1,0],//7 OK
-    [0,0,1,0,1,0,1,0],
-    [0,0,0,1,0,0,1,0],
-    [1,0,1,0,1,0,0,0]
-  ],
-  // [1,x,x,x,x,x,x,x],
-  // [0,x,1,0,1,x,x,x],
-  // [0,x,0,x,0,x,x,x],
-  // [1,0,1,x,1,0,0,0]
-  [
-    [4,0,0,1,0,1,0,1],//8 OK
-    [1,1,0,1,0,1,1,0],
-    [1,0,0,0,0,1,0,0], 
-    [0,0,1,0,0,1,0,0]
-  ],
-  // [4,0,0,1,x,1,0,1],
-  // [x,x,x,1,0,1,x,0],
-  // [x,x,x,x,x,x,x,0],
-  // [x,x,x,x,x,x,x,0]
-  [
-    [1,0,1,0,1,0,1,0],//9 OK
-    [0,1,0,1,0,0,1,0],
-    [1,0,1,0,0,1,1,1],
-    [1,0,1,0,1,0,1,0]
-  ],
-    // [1,x,1,0,1,x,x,x],
-    // [0,x,0,x,0,x,x,x],
-    // [1,0,1,x,0,x,1,1],
-    // [x,x,x,x,1,0,1,0]
-    [
-      [4,1,1,0,1,0,1,0],//10 OK
-      [0,0,1,1,0,0,0,1],
-      [0,0,1,0,0,1,1,0],
-      [1,1,0,1,0,1,1,0]
-    ],
-    // [4,1,x,x,x,x,x,x],
-    // [x,0,x,1,0,0,0,1],
-    // [x,0,x,0,x,x,x,0],
-    // [x,1,0,1,x,x,x,0]
-    [
-      [4,0,0,0,0,0,1,0],//11 OK
-      [1,0,1,0,0,0,0,0],
-      [0,1,0,1,0,0,1,0],
-      [1,0,0,1,0,0,0,0]
-    ],
-    // [4,0,0,0,0,0,1,x],
-    // [x,x,x,x,x,x,0,x],
-    // [x,x,x,1,0,0,1,x],
-    // [x,x,x,1,0,0,0,0]
-  [
-   [6,0,0,0,1,0,0,1], // 0 OK
-   [0,0,1,1,1,0,1,0], // z serwera
-   [0,1,1,1,1,1,0,0],
-   [1,0,1,1,1,1,1,0]
- ],
- [
-   [4,0,0,0,0,0,1,1], // 1 OK
-   [0,0,1,1,1,0,1,0], // z serwera
-   [1,1,1,0,1,1,1,1],
-   [1,0,0,1,0,1,0,0]
- ],
- [
-   [5,1,1,0,1,1,1,0], // 2 OK
-   [1,1,0,1,0,0,1,1],
-   [1,0,1,1,1,0,0,0],
-   [0,1,0,1,0,0,1,0]
- ],
- // [5,1,1,0,1,x,x,x],
- // [1,1,0,x,0,x,1,1],
- // [1,0,1,1,1,x,0,0],
- // [x,x,x,1,0,0,1,x]
-[
- [6,1,1,1,0,0,1,1], // 3 OK
- [0,1,0,0,1,1,0,0],
- [0,1,0,1,1,0,0,0],
- [1,0,1,0,0,1,1,0]
-],
-// [6,x,1,1,x,x,1,1],
-// [0,x,0,0,1,1,0,0],
-// [0,x,0,1,1,0,0,0],
-// [1,0,1,x,x,1,1,x]
-[
- [5,0,0,0,0,0,1,1], // 4 OK
- [1,1,1,0,0,0,1,0],
- [1,0,0,1,0,0,0,1],
- [1,1,1,1,1,0,0,0]
-],
-// [5,0,0,0,0,0,1,x],
-// [x,x,1,0,0,0,1,x],
-// [x,x,0,1,0,0,0,1],
-// [x,x,1,1,x,x,x,0]
-[
- [5,1,0,1,0,1,0,1], // 5 OK
- [0,1,0,1,0,0,0,0],
- [1,0,0,0,0,1,0,0],
- [1,0,0,0,0,0,0,0]
-],
-// [5,1,x,1,0,1,x,x],
-// [x,1,0,1,x,0,x,x],
-// [1,0,0,0,0,1,x,x],
-// [1,0,0,0,0,0,0,0]
-[
- [1,0,0,0,0,0,0,1], // 6 OK
- [0,1,1,1,1,1,1,1],
- [1,0,1,1,1,1,1,0],
- [1,0,1,0,1,1,0,0]
-]
-// [1,x,x,x,x,x,x,x],
-// [0,x,1,1,1,1,1,1],
-// [1,0,1,1,1,1,1,0],
-// [x,x,x,x,x,x,x,x]
 
-
-//[
-//[x,x,x,x,x,x,x,x],
-//[x,x,x,x,x,x,x,x],
-//[x,x,x,x,x,x,x,x],
-//[x,x,x,x,x,x,x,x]
-//]
-]
 const randomInt = (max) => Math.floor(Math.random() * Math.floor(max))
 const delay = t => new Promise(res => setTimeout(res, t * 1000));
 
@@ -483,47 +292,37 @@ class Exit extends Square
 }
 async function createMaze()
 {
-  var ran = randomInt(MAZE_N.length);
-  console.log(ran);
-  //alert(ran);
-  var mazeNumbers = MAZE_N[ran];
+  var mazeNumbers = await ExploGridToMyGrid();
   maze = new Array(rows);
   for(var i = 0; i < rows; i++)
   {
     maze[i] = new Array(columns);
     for(var j = 0; j < columns; j++)
     {
-      if(mazeNumbers[i][j] == 0)
+      switch(mazeNumbers[i][j])
       {
-        maze[i][j] = new Straight(i,j,-1);
-      }
-      else if(mazeNumbers[i][j] == 1)
-      {
-        maze[i][j] = new Angle(i,j,-1);
+        case 1:
+          maze[i][j] = new Angle(i,j,1);
+        break;
+        case 2:
+          maze[i][j] = new Angle(i,j,2);
+        break;
+        case 3:
+          maze[i][j] = new Angle(i,j,0);
+        break;
+        case 4:
+          maze[i][j] = new Angle(i,j,3);
+        break;
+        case 5:
+          maze[i][j] = new Straight(i,j,1);
+        break;
+        case 6:
+          maze[i][j] = new Straight(i,j,0);
+        break;
       }
     }
   }
-  switch(mazeNumbers[0][0])
-  {
-    case 1:
-      maze[0][0] = new Angle(0,0,1);
-    break;
-    case 2:
-      maze[0][0] = new Angle(0,0,2);
-    break;
-    case 3:
-      maze[0][0] = new Angle(0,0,0);
-    break;
-    case 4:
-      maze[0][0] = new Angle(0,0,3);
-    break;
-    case 5:
-      maze[0][0] = new Straight(0,0,1);
-    break;
-    case 6:
-      maze[0][0] = new Straight(0,0,0);
-    break;
-  }
+  
   maze[rows-1][columns-1] = new Exit(rows-1,columns-1);
   maze[0][0].setActive();
   maze[0][0].update();
@@ -631,3 +430,184 @@ $("#buttonStart").on( "click", function() {
   $("#mainSpot").show();
   start();
 });
+// ALGORYTM OD !Explooosion!#0156 DZIEKUJE BARDZO <3
+const CONNECTION_UP = 0;
+const CONNECTION_DOWN = 1;
+const CONNECTION_LEFT = 2;
+const CONNECTION_RIGHT = 3;
+
+function getStep(row, cell, grid) {
+    let steps = [];
+
+    if(row !== 0 && grid[row -1][cell] === 0)
+        steps.push(CONNECTION_UP);
+    if(row !== grid.length - 1 && grid[row + 1][cell] === 0)
+        steps.push(CONNECTION_DOWN);
+    if(cell !== 0 && grid[row][cell -1] === 0)
+        steps.push(CONNECTION_LEFT);
+    if(cell !== grid[0].length - 1 && grid[row][cell + 1] === 0)
+        steps.push(CONNECTION_RIGHT);
+
+    steps = steps.filter(e => {
+        if(e === CONNECTION_LEFT) {
+            return row !== grid.length - 1 && row !== 0;
+        }
+
+        if(e === CONNECTION_UP) {
+            return cell !== 0 && cell !== grid[0].length - 1
+        }
+
+        return true;
+    });
+
+    if(steps.length === 0) {
+        return null;
+    }
+
+    const step = steps[Math.floor(Math.random() * steps.length)];
+    return step;
+}
+
+function generateSteps() {
+    const steps = [];
+    const tempGrid = [];
+    for(let i = 0; i < 4; i++) {
+        const row = [];
+        for(let j = 0; j < 8; j++) {
+            row.push(0);
+        }
+
+        tempGrid.push(row);
+    }
+
+    tempGrid[0][0] = 1;
+    let row = 0, cell = 0;
+    while(row < 3 || cell < 7) {
+        const step = getStep(row, cell, tempGrid);
+
+        if(step === null) {
+            return generateSteps();
+        }
+
+        if(step === CONNECTION_UP) {
+            row--;
+        } else if(step === CONNECTION_DOWN) {
+            row++;
+        } else if(step === CONNECTION_LEFT) {
+            cell--;
+        } else if(step === CONNECTION_RIGHT) {
+            cell++;
+        }
+        tempGrid[row][cell] = 1;
+        steps.push(step);
+    }
+
+    return steps;
+}
+
+function GenerateGrid() {
+    const steps = generateSteps();
+    const grid = [];
+    for(let i = 0; i < 4; i++) {
+        const row = [];
+        for(let j = 0; j < 8; j++) {
+            let type = Math.random() > 0.5 ? "corner" : "flat";
+            let rotation = Math.floor(Math.random() * 4)
+            if(i === 3 && j === 7) {
+                type = "corner";
+                rotation = 0;
+            }
+            row.push({type, rotation, row: i, cell: j});
+        }
+
+        grid.push(row);
+    }
+
+    let row = 0, cell = 0;
+    for(let i = 0; i < steps.length - 1; i++) {
+        const step = steps[i];
+        const nextStep = steps[i + 1];
+
+        if(row === 0 && cell === 0) {
+            if(step === CONNECTION_DOWN) {
+                grid[row][cell] = {
+                    type: "flat",
+                    rotation: 0,
+                    row,
+                    cell
+                }
+            } else {
+                grid[row][cell] = {
+                    type: "corner",
+                    rotation: 1,
+                    row,
+                    cell
+                }
+            }
+
+        }
+
+        if(step === CONNECTION_UP) {
+            row--;
+        } else if(step === CONNECTION_DOWN) {
+            row++;
+        } else if(step === CONNECTION_LEFT) {
+            cell--;
+        } else if(step === CONNECTION_RIGHT) {
+            cell++;
+        }
+
+        if(step === nextStep) {
+            grid[row][cell] = {
+                type: "flat",
+                rotation: Math.floor(Math.random() * 4),
+                row,
+                cell
+            }
+        } else {
+            grid[row][cell] = {
+                type: "corner",
+                rotation: Math.floor(Math.random() * 4),
+                row,
+                cell
+            }
+        }
+    }
+
+    return grid;
+}
+// "wybitny" konwerter siatki od explo na moja siatke.
+// przepraszam za to ponizej
+async function ExploGridToMyGrid()
+{
+  var newgrid = new Array(rows);
+  for(var i = 0; i < rows; i++)
+  {
+    newgrid[i] = new Array(columns);
+  }
+  var grid = GenerateGrid();
+  for(var i = 0;i<grid.length; i++)
+  {
+    for(var j = 0;j<grid[i].length; j++)
+    {
+      if(grid[i][j].type == "flat")
+      {
+        if(grid[i][j].rotation == 0 || grid[i][j].rotation == 2)
+        newgrid[i][j] = 6;
+        else if(grid[i][j].rotation == 1 || grid[i][j].rotation == 3)
+        newgrid[i][j] = 5;
+      }else
+      {
+        if(grid[i][j].rotation == 0)
+          newgrid[i][j] = 3;
+        else if(grid[i][j].rotation == 1)
+          newgrid[i][j] = 4;
+        else if(grid[i][j].rotation == 2)
+          newgrid[i][j] = 1;
+        else if(grid[i][j].rotation == 3)
+          newgrid[i][j] = 2;
+      }
+    }
+  }
+  return newgrid;
+}
